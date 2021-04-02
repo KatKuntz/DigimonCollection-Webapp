@@ -1,45 +1,56 @@
 <template>
-  <div id="app">
-    <header id="header">
-      <div class="logo">Logo / Title</div>
-      <nav id="nav">
-        <router-link :to="{ name: 'Home' }">Home</router-link>
-        <router-link :to="{ name: 'Database' }">Database</router-link>
-        <router-link :to="{ name: 'Login' }">Log In</router-link>
-      </nav>
-    </header>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <div class="d-flex align-center">
+        <v-img
+          alt="Vuetify Logo"
+          class="shrink mr-2"
+          contain
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          transition="scale-transition"
+          width="40"
+        />
+
+        <v-img
+          alt="Vuetify Name"
+          class="shrink mt-1 hidden-sm-and-down"
+          contain
+          min-width="100"
+          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
+          width="100"
+        />
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Latest Release</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <HelloWorld />
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#header {
-  display: flex;
-  background-color: lightblue;
-  height: 2rem;
-}
+<script>
+import HelloWorld from "./components/HelloWorld";
 
-#header .logo {
-  flex-grow: 1;
-  align-self: center;
-  margin-left: 1rem;
-}
+export default {
+  name: "App",
 
-#nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-grow: 0.2;
-  margin-right: 1rem;
-}
+  components: {
+    HelloWorld,
+  },
 
-#nav a {
-  text-decoration: none;
-  padding: 5px 15px;
-}
-
-#nav a.router-link-exact-active {
-  background-color: lightskyblue;
-  align-self: stretch;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
